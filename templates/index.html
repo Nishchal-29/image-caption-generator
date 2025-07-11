@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Upload Image</title></head>
+<body>
+  <h2>Upload an Image</h2>
+  <form method="POST" action="/predict" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required><br><br>
+    <input type="submit" value="Generate Caption">
+  </form>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head><title>Result</title></head>
+<body>
+  <h2>Generated Caption</h2>
+  <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="400"><br><br>
+  <p><strong>{{ caption }}</strong></p>
+  <a href="/">Try another</a>
+</body>
+</html>
