@@ -10,10 +10,8 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 caption_model = load_model('models/caption_model2.h5')
-
-with open('tokenizer.pkl', 'rb') as f:
+with open('models/tokenizer.pkl', 'rb') as f:
     tokenizer = pickle.load(f)
     
 img_model = DenseNet201()
@@ -63,10 +61,8 @@ def predict():
     file = request.files['image']
     filename = os.path.join(UPLOAD_FOLDER, file.filename)
     file.save(filename)
-
     photo = extract_features(filename=filename)
     caption = generate_caption(photo=photo)
-    
     return render_template('predict.html', filename=file.filename, caption=caption)
 
 if __name__ == '__main__':
